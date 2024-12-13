@@ -15,5 +15,4 @@ class ProductViewSet(viewsets.ModelViewSet):
     ordering_fields = ['price', 'name']
     ordering = ['name']
 
-
 # Create your views here.
