@@ -1,15 +1,35 @@
 
 # Authentication Setup
 
-## Overview
-This project uses **JWT (JSON Web Token)** authentication provided by Django REST Framework's SimpleJWT library. All API endpoints are protected and require a valid token to access.
+## Description
+The E-commerce API uses **Django REST Framework** with **Token-Based Authentication** to secure endpoints.
 
----
+### Steps to Use Authentication
 
-## Setup Instructions
+1. **Obtain a Token**
+   - Endpoint: `/api/token-auth/`
+   - Method: POST
+   - Request Body:
+     ```json
+     {
+         "username": "your_username",
+         "password": "your_password"
+     }
+     ```
+   - Response:
+     ```json
+     {
+         "token": "your_token"
+     }
+     ```
 
-1. **Install Required Libraries**
-   Ensure you have installed the following:
+2. **Access Protected Endpoints**
+   - Include the token in the `Authorization` header:
+     ```
+     Authorization: Token <your_token>
+     ```
+
+   Example:
    ```bash
-   pip install djangorestframework
-   pip install djangorestframework-simplejwt
+   curl -X GET http://127.0.0.1:8000/api/products/ \
+        -H "Authorization: Token your_token"
