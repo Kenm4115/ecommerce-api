@@ -22,3 +22,18 @@ Use the `/api-token-auth/` endpoint to retrieve a token:
 curl -X POST http://localhost:8000/api-token-auth/ \
 -H "Content-Type: application/json" \
 -d '{"username": "testuser", "password": "password123"}'
+
+To view all products:
+Navigate to http://127.0.0.1:8000/api/products/
+
+To view a single product by ID:
+Navigate to http://127.0.0.1:8000/api/products/<product_id>/
+
+To filter products by category:
+Add a category query parameter like http://127.0.0.1:8000/api/products/?category=Electronics
+
+To filter products by price range:
+Add min_price and max_price query parameters like http://127.0.0.1:8000/api/products/?min_price=100&max_price=500
+
+To filter products by stock availability:
+Add in_stock=true to filter only products with stock, like http://127.0.0.1:8000/api/products/?in_stock=true
