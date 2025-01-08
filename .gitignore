@@ -1,16 +1,64 @@
 
+# .gitignore for Django E-commerce API
+
 # Python
-__pycache__/
-*.py[cod]
+*.pyc
 *.pyo
-.env
+*.pyd
+*.py[co]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Django
+*.log
+*.pot
+*.pydevproject
+*.project
+*.sqlite3
+.DS_Store
 
 # Virtual Environment
 venv/
+.env
+.env.local
 
-# Django
-db.sqlite3
-static/
+# Node.js (if frontend dependencies exist)
+node_modules/
 
-# System
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# OS generated files
+Thumbs.db
 .DS_Store
+
+# Database
+*.db
+*.sqlite3
+
+# Test Output
+*.coverage
+.coverage.*
+.cache/
+
+# Static and Media files
+/staticfiles/
+/media/
+
+# Deployment
+*.pem
+*.key
+*.crt
+secrets.json
+
+# Pipenv and other package managers
+Pipfile
+Pipfile.lock
+yarn.lock
