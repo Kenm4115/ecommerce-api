@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1)lkjm1al0g29$=zo^e*ibvs4h3!th)5*08on%4^$*k%-t^j#&'
+SECRET_KEY = 'django-insecure-k5nig35sh13-d0q904bdj3=$-1px+-y@kk)*3wyi^z*c(2-@k@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'products',
     'users',
-    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -131,10 +130,10 @@ AUTH_USER_MODEL = 'users.CustomUser'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ]
-}
-
-REST_FRAMEWORK = {
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 10,  # 10 products per page
 }
