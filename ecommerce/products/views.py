@@ -43,13 +43,14 @@ class ProductListCreateView(generics.ListCreateAPIView):
             queryset = queryset.filter(price__lte=max_price)
 
         if stock_available:
-            queryset = queryset.filter(stock_quantity__gt=0)  # Only in-stock items
+            queryset = queryset.filter(
+                stock_quantity__gt=0)  # Only in-stock items
 
         return queryset
+
 
 class ProductRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
